@@ -1,6 +1,6 @@
 # This file generates GitHub Actions workflows for ZMK
 include:
-  - board: seeeduino_xiao_ble
+  - board: xiao_ble
     shield: sp40_left
-  - board: seeeduino_xiao_ble
+  - board: xiao_ble
     shield: sp40_right
