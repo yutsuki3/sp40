@@ -1,21 +1,40 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/studio.h>
 
 / {
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
-            // [Row 1] 10 keys: Q W E R T | Y U I O P
-            // [Row 2] 10 keys: A S D F G | H J K L ;
-            // [Row 3] 10 keys: Z X C V B | N M , . /
-            // [Row 4] 10 keys (Thumb row): LCtrl LAlt LCmd LShift SPC | ENT RShift RCmd RAlt RCtrl
+           // [Row 1] Q W E R T | Y U I O P
+            // [Row 2] A(LCTRL) S D F G | H J K L ;(RCTRL)
+            // [Row 3] Z(LSHIFT) X C V B | N M , . /(RSHIFT)
+            // [Row 4] ESC TAB CMD SPC BSPC | ENT(L1) CMD(LANG1) L2 MINUS EQUAL
             bindings = <
-                &kp Q      &kp W      &kp E      &kp R       &kp T          &kp Y       &kp U      &kp I      &kp O      &kp P
-                &kp A      &kp S      &kp D      &kp F       &kp G          &kp H       &kp J      &kp K      &kp L      &kp SEMI
-                &kp Z      &kp X      &kp C      &kp V       &kp B          &kp N       &kp M      &kp COMMA  &kp DOT    &kp FSLH
-                &kp LCTRL  &kp LALT   &kp LGUI   &kp LSHFT   &kp SPACE      &kp RET     &kp RSHFT  &kp RGUI   &kp RALT   &kp RCTRL
+                &kp Q          &kp W      &kp E          &kp R       &kp T          &kp Y       &kp U          &kp I      &kp O      &kp P
+                &mt LCTRL A    &kp S      &kp D          &kp F       &kp G          &kp H       &kp J          &kp K      &kp L      &mt RCTRL SEMI
+                &mt LSHFT Z    &kp X      &kp C          &kp V       &kp B          &kp N       &kp M          &kp COMMA  &kp DOT    &mt RSHFT FSLH
+                &kp ESC        &kp TAB    &mt LGUI LANG2 &kp SPACE   &kp BSPC       &lt 1 RET   &mt RGUI LANG1 &mo 2      &kp MINUS  &kp EQUAL
+            >;
+        };
+        layer_1 {
+            // Navigation Layer (IJKL -> UP/LEFT/DOWN/RIGHT)
+            bindings = <
+                &trans     &trans     &trans     &trans      &trans         &trans      &trans     &kp UP     &trans     &trans
+                &trans     &trans     &trans     &trans      &trans         &trans      &kp LEFT   &kp DOWN   &kp RIGHT  &trans
+                &trans     &trans     &trans     &trans      &trans         &trans      &trans     &trans     &trans     &trans
+                &trans     &trans     &trans     &trans      &trans         &trans      &trans     &trans     &trans     &trans
+            >;
+        };
+        layer_2 {
+            // Number Layer (Q-P -> 1-0)
+            bindings = <
+                &kp N1     &kp N2     &kp N3     &kp N4      &kp N5         &kp N6      &kp N7     &kp N8     &kp N9     &kp N0
+                &trans     &trans     &trans     &trans      &trans         &trans      &trans     &trans     &trans     &trans
+                &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &trans   &trans         &trans      &trans     &trans     &trans     &trans
+                &trans     &trans     &trans     &trans      &trans         &trans      &trans     &trans     &trans     &studio_unlock
             >;
         };
     };
