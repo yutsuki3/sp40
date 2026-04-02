@@ -1,8 +1,8 @@
 # This file generates GitHub Actions workflows for ZMK
 include:
-  - board: seeeduino_xiao_ble/nrf52840/zmk
+  - board: xiao_ble/zmk
     shield: sp40_left
-  - board: seeeduino_xiao_ble/nrf52840/zmk
+  - board: xiao_ble/zmk
     shield: sp40_right
-  - board: seeeduino_xiao_ble/nrf52840/zmk
+  - board: xiao_ble/zmk
     shield: settings_reset
