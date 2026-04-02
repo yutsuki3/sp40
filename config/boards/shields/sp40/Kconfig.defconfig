@@ -3,11 +3,24 @@ if SHIELD_SP40_LEFT
 config ZMK_KEYBOARD_NAME
     default "SP40 Left"
 
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
 endif
 
 if SHIELD_SP40_RIGHT
 
 config ZMK_KEYBOARD_NAME
     default "SP40 Right"
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default n
+
+endif
+
+if SHIELD_SP40_LEFT || SHIELD_SP40_RIGHT
+
+config ZMK_SPLIT
+    default y
 
 endif
