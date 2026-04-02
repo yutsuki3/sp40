@@ -1,0 +1,13 @@
+if SHIELD_SP40_LEFT
+
+config ZMK_KEYBOARD_NAME
+    default "SP40 Left"
+
+endif
+
+if SHIELD_SP40_RIGHT
+
+config ZMK_KEYBOARD_NAME
+    default "SP40 Right"
+
+endif
